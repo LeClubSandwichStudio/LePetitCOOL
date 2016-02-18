@@ -1,7 +1,7 @@
 /*	LACOOL_CO's GENERAL LIBRARY
 	TYPE : DEFINITION	-	MODEL : Le Petit Cool
 	ROLE : Le Petit Cool General Definitions
-	@author Maximilien Daman	15/11/2015
+	@author Maximilien Daman	16/02/2016
 	Mail : max@lacool.co	Web : www.lacool.co
  */
  
@@ -15,16 +15,36 @@
 	//DHT
 	#define DHTMaxFreq	2000
 	//SD
-	#define CS_Pin		53		//Slave Select = Connect Slave	<=> SS = CS
-	#define MISO_Pin 	50		//Slave Out = Device Out		<=>	MISO = DO
-	#define MOSI_Pin 	51		//Slave In = Device In			<=>	MOSI = DI
-	#define CLK_Pin		52		//Clk
+	/*	//	Specifications:
+		//		Slave Select = Connect Slave	<=> SS = CS
+		//		Slave Out = Device Out		<=>	MISO = DO
+		//		Slave In = Device In			<=>	MOSI = DI
+		//		Clk
+	*/
+	#define CS_Pin		53		//	SS
+	#define MISO_Pin 	50		//	MISO
+	#define MOSI_Pin 	51		//	MOSI
+	#define CLK_Pin		52		//	CLK
 	//BlueTooth
-		//#define BTBaudRate		38400
-		//#define ATBaudRate		6
+	/*	// Materiel BlueTooth:
+		// 		- Grove Bluetooth Low Energy 3.0 : 
+		//			-> STMode
+		//			-> BTBaudRate = 38400
+		//		- HC-06:
+		//			-> ATMode
+		//			-> BTBaudRate = 9600
+	*/
+	/*	Uncomment these lines if using HC-06:	*/
+		// #define	_ATMode
+		// #define BTBaudRate	9600
+		// #define ATBaudRate	4
+	/*	*/
+	/*	Uncomment these lines if Using Grove BLE 3.0: */
+		#define _STMode
+		#define BTBaudRate	38400
+		#define ATBaudRate	6
+	/*	*/
 	#define BTCodeLength	4
-	#define BTBaudRate		9600
-	#define ATBaudRate		4
 	//Camera
 		//#define	CoolCam 	softwareSerial(A8, A9)
 		//#define CCBaudRate	115200
